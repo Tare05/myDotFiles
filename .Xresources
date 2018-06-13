@@ -1,0 +1,96 @@
+
+!    *----------------------------*
+!    |  Dotfiles  -  .Xresources  |
+!    *----------------------------*
+
+
+! This files contains configuration for:
+!  * terminal colours
+!  * urxvt
+!  * rofi
+
+
+! === Font ===
+
+! *font:          xft:inconsolatazi4:size=18
+
+
+! === Colours ===
+
+! main
+*.cursorColor:  #000000
+*background:    #5d729f
+*foreground:    #34405a
+
+! black
+*color0:        #151520
+*color8:        #3c3c5c
+! red
+*color1:        #5e73a0
+*color9:        #82a0df
+! green
+*color2:        #5671a0
+*color10:       #789ee1
+! yellow
+*color3:        #5b70a0
+*color11:       #7f9cdf
+! blue
+*color4:        #4c6ea0
+*color12:       #6c9ce3
+! magenta
+*color5:        #7a7fa0
+*color13:       #a5abd8
+! cyan
+*color6:        #5471a0
+*color14:       #769fe1
+! white
+*color7:        #8581a0
+*color15:       #b2add7
+
+
+! === rofi ===
+
+rofi.modi:                           ssh,window,drun,run
+rofi.sidebar-mode:                   false
+rofi.terminal:                       xfce4-terminal 
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
+rofi.opacity:                        80
+rofi.width:                          100
+rofi.lines:                          5
+rofi.columns:                        2
+rofi.font:                           System San Francisco Display 16
+rofi.fg:                             #1f222d
+rofi.bg:                             #252936
+rofi.eh:			     2	
+rofi.fg-active:                      #1f222d
+rofi.fg-urgent:                      #34405a
+rofi.hlfg-active:                    #5e73a0
+rofi.hlfg-urgent:                    #CC1f222dd
+rofi.bg-active:                      #CC1f222dd
+rofi.bg-urgent:                      #CC1f222dd
+rofi.hlbg-active:                    #CC1f222dd
+rofi.hlbg-urgent:                    #CC1f222dd
+rofi.bgalt:                          ##CC1f222d
+rofi.hlfg:                           ##CC1f222d
+rofi.hlbg:                           ##CC1f222d
+rofi.bc:                             #CC1f222d
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: #CC1f222d, #CC1f222d, #CC1f222d #CC1f222d, #CC1f222i
+rofi.color-normal: #CC353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF
+rofi.color-normal: #CC353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF
+
+!                  'background', 'border'
+rofi.color-window: #CC1f222d,      #CC252936
+rofi.bw:                             0
+rofi.location:                       0
+rofi.padding:                        350
+rofi.fake-transparency:		     false
+rofi.levenshtein-sort:               true
+rofi.case-sensitive:                 false
+rofi.fuzzy:                          false
+rofi.line-margin:                    2
+rofi.separator-style:                none
+rofi.hide-scrollbar:                 true
+rofi.markup-rows:                    false
+rofi.scrollbar-width:                8
