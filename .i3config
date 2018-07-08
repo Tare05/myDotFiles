@@ -240,10 +240,9 @@ bindsym $mod+F2 exec mons -s
 bindsym $mod+F3 exec mons -e left
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+y exec playerctl play-pause
+bindsym $mod+iacute exec playerctl previous
+bindsym $mod+x exec playerctl next
 
 # Bind printscreen
 bindsym Print exec xfce4-screenshooter
