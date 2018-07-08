@@ -1,0 +1,5 @@
+case $BLOCK_BUTTON in
+	1) $TERMINAL -e calcurse  & disown ;;
+esac
+
+echo $(date '+%Y %b %d %H:%M:%S')
