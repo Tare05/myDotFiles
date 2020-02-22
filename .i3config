@@ -10,12 +10,12 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-set $base00 #101218
-set $base01 #1f222d
+set $base00 #073642
+set $base01 #002b36
 set $base02 #252936
-set $base03 #7780a1
-set $base04 #C0C5CE
-set $base05 #d1d4e0
+set $base03 #586e75
+set $base04 #657b83
+set $base05 #eee8d5
 set $base06 #C9CCDB
 set $base07 #ffffff
 set $base08 #ee829f
@@ -53,7 +53,7 @@ exec mons -a & disown
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -131,7 +131,7 @@ bindsym $mod+a focus parent
 # Startup Programs
   exec --no-startup-id nm-applet
 
-set $workspace10 "10: "
+set $workspace10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -203,7 +203,7 @@ bindsym $mod+r mode "resize"
   client.unfocused        $base02 $base02    $base03 $base0F
   client.urgent           $base02 $base08    $base00 $base0F
 
-hide_edge_borders both
+#hide_edge_borders both
 
 bar {
         #status_command i3status
@@ -247,6 +247,12 @@ bindsym $mod+x exec playerctl next
 # Bind printscreen
 bindsym Print exec xfce4-screenshooter
 
-# Set wallpaper (need to install feh)
+# Set wallpaper
 exec_always feh --randomize --bg-scale ~/Pictures/wallpaper/*
+
+# Makes it borderless (No title bar)
+for_window [class="^.*"] border pixel 2
+
+# New windows spawn where they were called
+#no_focus [class="^.*"]
 
