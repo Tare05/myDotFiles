@@ -1,57 +1,26 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=1000
-setopt autocd nomatch
-unsetopt beep
-bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/tare/.zshrc'
+# Luke's config for the Zoomer Shell
 
-autoload -Uz compinit
+# Enable colors and change prompt:
+autoload -U colors && colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+# History in cache directory:
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.cache/zsh/history
+# Maybe this is not used after all
+bindkey -v '^R' history-incremental-search-backward
+
+# Basic auto/tab complete:
+autoload -U compinit
 zstyle ':completion:*' menu select
+zmodload zsh/complist
 compinit
-# End of lines added by compinstall
-
-# Loading in prompt themes
-#autoload -Uz promptinit
-#promptinit
-
-# Turn on command not found hook(searches repos when command 404)
-source /usr/share/doc/pkgfile/command-not-found.zsh
-
-# Turn on Fish like highlight
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# PowerkLevel9k
-powerline-daemon -q
-. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# Antigen
-source /usr/share/zsh/share/antigen.zsh
-antigen theme KuoE0/oh-my-zsh-solarized-powerline-theme solarized-powerline
-
-ZSH_POWERLINE_SHOW_TIME=true
-ZSH_POWERLINE_SHOW_OS=false
-
-
-# Tell Antigen that you're done.
-antigen apply
-
 
 export EDITOR=vim
 export BROWSER=firefox
+export PATH=$PATH:/home/tare/.local/bin:/opt/android-sdk/build-tools/28.0.3
 
-# rebind buttons because zsh doesnt read /etc/inputrc
-# just start cat, and press the button you want
-# urxvt
-bindkey "^[[7~" beginning-of-line
-bindkey "^[[8~" end-of-line
-bindkey "^[[3~" delete-char
-bindkey "^[Oc" forward-word
-bindkey "^[Od" backward-word
-# st
 bindkey "^[[H" beginning-of-line
 bindkey "^[[4~" end-of-line
 bindkey "^[[P" delete-char
@@ -66,3 +35,20 @@ alias sv='sudo vim'
 alias v='vim'
 alias fclip='xclip -sel clip <'
 
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+# Load zsh-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+# Turn on command not found hook(searches repos when command 404)
+# source /usr/share/doc/pkgfile/command-not-found.zsh
