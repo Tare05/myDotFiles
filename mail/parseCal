@@ -1,0 +1,13 @@
+#!/bin/bash
+
+vCal=$1
+
+vcal $vCal
+
+read -r -p "Do you want to add this to your calendar? [Y/n] " response
+if [[ "$response" =~ ([nN][eE][sS]|[nN])$ ]]
+then
+    exit
+else
+    calcurse -i $vCal
+fi
