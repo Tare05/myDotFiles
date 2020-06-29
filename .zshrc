@@ -2,7 +2,8 @@
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+#PS1="%B%{$fg[cyan]%}[%{$fg[cyan]%}%n%{$fg[cyan]%}@%{$fg[cyan]%}%M %{$fg[yellow]%}%~%{$fg[cyan]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[yellow]%}[%{$fg[yellow]%}%n%{$fg[yellow]%}@%{$fg[yellow]%}%M %{$fg[cyan]%}%~%{$fg[yellow]%}]%{$reset_color%}$%b "
 
 # History in cache directory:
 HISTSIZE=10000
@@ -21,9 +22,11 @@ export EDITOR=vim
 export BROWSER=firefox
 export PATH=$PATH:/home/tare/.local/bin:/opt/android-sdk/build-tools/28.0.3
 
-bindkey "^[[H" beginning-of-line
-bindkey "^[[4~" end-of-line
-bindkey "^[[P" delete-char
+# Why cant you just read inputrc you stupid
+#bindkey '^H' backward-kill-word 
+bindkey '^[[3~' delete-char
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
@@ -46,6 +49,13 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+
+# This is for urxvt Shift selection (Not workin)
+#export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+#bindkey ';5D' backward-word
+#bindkey ';5C' forward-word
+
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

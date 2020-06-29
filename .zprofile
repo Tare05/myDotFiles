@@ -1,6 +1,6 @@
 export LANG=en_US.UTF-8
-export TERMINAL=st
+export TERMINAL=urxvt
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-        exec startx
+	exec startx
 fi
