@@ -9,6 +9,16 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 setxkbmap hu
 
+if ! pgrep -x "ntfd" >/dev/null
+then
+    ntfd & disown &>/dev/null
+fi
+
+if ! pgrep -x "spotify-listener" >/dev/null
+then
+    spotify-listener & disown &>/dev/null
+fi
+
 if [ -f $sysresources ]; then
 
 
