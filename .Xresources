@@ -68,51 +68,6 @@ URxvt.keysym.KP_End:  \033[4~
 
 ! === rofi ===
 
-rofi.modi:                           ssh,window,drun,run
-rofi.sidebar-mode:                   false
-rofi.terminal:                       urxvt 
-rofi.ssh-client:                     ssh
-rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
-rofi.opacity:                        80
-rofi.width:                          100
-rofi.lines:                          5
-rofi.columns:                        2
-rofi.font:                           System San Francisco Display 16
-rofi.fg:                             #1f222d
-rofi.bg:                             #252936
-rofi.eh:			     2	
-rofi.fg-active:                      #1f222d
-rofi.fg-urgent:                      #34405a
-rofi.hlfg-active:                    #5e73a0
-rofi.hlfg-urgent:                    #CC1f222dd
-rofi.bg-active:                      #CC1f222dd
-rofi.bg-urgent:                      #CC1f222dd
-rofi.hlbg-active:                    #CC1f222dd
-rofi.hlbg-urgent:                    #CC1f222dd
-rofi.bgalt:                          ##CC1f222d
-rofi.hlfg:                           ##CC1f222d
-rofi.hlbg:                           ##CC1f222d
-rofi.bc:                             #CC1f222d
-! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
-rofi.color-normal: #CC1f222d, #CC1f222d, #CC1f222d #CC1f222d, #CC1f222i
-rofi.color-normal: #CC353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF
-rofi.color-normal: #CC353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF
-
-!                  'background', 'border'
-rofi.color-window: #CC1f222d,      #CC252936
-rofi.bw:                             0
-rofi.location:                       0
-rofi.padding:                        350
-rofi.fake-transparency:		     false
-rofi.levenshtein-sort:               true
-rofi.case-sensitive:                 false
-rofi.fuzzy:                          false
-rofi.line-margin:                    2
-rofi.separator-style:                none
-rofi.hide-scrollbar:                 true
-rofi.markup-rows:                    false
-rofi.scrollbar-width:                8
-
 ! === Colours ===
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
